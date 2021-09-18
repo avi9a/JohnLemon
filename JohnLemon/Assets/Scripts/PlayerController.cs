@@ -8,10 +8,13 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody playerRb;
     private Animator playerAnim;
     private AudioSource audioSource;
+    private GameMaster gameMaster;
     void Start() {
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        gameMaster = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        transform.position = gameMaster.lastCheckPointPosition;
     }
     void FixedUpdate() {
         Movement();
