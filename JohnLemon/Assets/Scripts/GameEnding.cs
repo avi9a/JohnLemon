@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameEnding : MonoBehaviour {
-    public float captureRate = 3f;
+    public float captureRate = 1f;
     public GameObject player;
     public CanvasGroup caughtCanvas;
     public CanvasGroup wonCanvas;
