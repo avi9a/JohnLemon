@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager instance;
+    public Vector3 lastCheckPointPosition;
     public bool soundIsPlayed;
     public float timer;
     public float fadeDuration = 1f;
@@ -22,6 +24,15 @@ public class GameManager : MonoBehaviour
             else {
                 Application.Quit();
             }
+        }
+    }
+    void Awake() {
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(instance);
+        }
+        else {
+            Destroy(gameObject);
         }
     }
 }
