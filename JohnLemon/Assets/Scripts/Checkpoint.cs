@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour {
-    private GameMaster gameMaster;
+    private GameManager gameManager;
     void Start() {
-        gameMaster = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        gameManager = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
     }
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
-            gameMaster.lastCheckPointPosition = transform.position;
+            gameManager.lastCheckPointPosition = transform.position;
         }
     }
 }
